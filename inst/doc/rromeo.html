@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta name="author" content="Matthias Grenié" />
+<meta name="author" content="Hugo Gruson" />
+
+<meta name="date" content="2019-05-16" />
+
+<title>Overview</title>
+
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css" data-origin="pandoc">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    for (var j = 0; j < rules.length; j++) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' || rule.style.backgroundColor === '') continue;
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
+
+
+
+<style type="text/css">body {
+background-color: #fff;
+margin: 1em auto;
+max-width: 700px;
+overflow: visible;
+padding-left: 2em;
+padding-right: 2em;
+font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+font-size: 14px;
+line-height: 1.35;
+}
+#header {
+text-align: center;
+}
+#TOC {
+clear: both;
+margin: 0 0 10px 10px;
+padding: 4px;
+width: 400px;
+border: 1px solid #CCCCCC;
+border-radius: 5px;
+background-color: #f6f6f6;
+font-size: 13px;
+line-height: 1.3;
+}
+#TOC .toctitle {
+font-weight: bold;
+font-size: 15px;
+margin-left: 5px;
+}
+#TOC ul {
+padding-left: 40px;
+margin-left: -1.5em;
+margin-top: 5px;
+margin-bottom: 5px;
+}
+#TOC ul ul {
+margin-left: -2em;
+}
+#TOC li {
+line-height: 16px;
+}
+table {
+margin: 1em auto;
+border-width: 1px;
+border-color: #DDDDDD;
+border-style: outset;
+border-collapse: collapse;
+}
+table th {
+border-width: 2px;
+padding: 5px;
+border-style: inset;
+}
+table td {
+border-width: 1px;
+border-style: inset;
+line-height: 18px;
+padding: 5px 5px;
+}
+table, table th, table td {
+border-left-style: none;
+border-right-style: none;
+}
+table thead, table tr.even {
+background-color: #f7f7f7;
+}
+p {
+margin: 0.5em 0;
+}
+blockquote {
+background-color: #f6f6f6;
+padding: 0.25em 0.75em;
+}
+hr {
+border-style: solid;
+border: none;
+border-top: 1px solid #777;
+margin: 28px 0;
+}
+dl {
+margin-left: 0;
+}
+dl dd {
+margin-bottom: 13px;
+margin-left: 13px;
+}
+dl dt {
+font-weight: bold;
+}
+ul {
+margin-top: 0;
+}
+ul li {
+list-style: circle outside;
+}
+ul ul {
+margin-bottom: 0;
+}
+pre, code {
+background-color: #f7f7f7;
+border-radius: 3px;
+color: #333;
+white-space: pre-wrap; 
+}
+pre {
+border-radius: 3px;
+margin: 5px 0px 10px 0px;
+padding: 10px;
+}
+pre:not([class]) {
+background-color: #f7f7f7;
+}
+code {
+font-family: Consolas, Monaco, 'Courier New', monospace;
+font-size: 85%;
+}
+p > code, li > code {
+padding: 2px 0px;
+}
+div.figure {
+text-align: center;
+}
+img {
+background-color: #FFFFFF;
+padding: 2px;
+border: 1px solid #DDDDDD;
+border-radius: 3px;
+border: 1px solid #CCCCCC;
+margin: 0 5px;
+}
+h1 {
+margin-top: 0;
+font-size: 35px;
+line-height: 40px;
+}
+h2 {
+border-bottom: 4px solid #f7f7f7;
+padding-top: 10px;
+padding-bottom: 2px;
+font-size: 145%;
+}
+h3 {
+border-bottom: 2px solid #f7f7f7;
+padding-top: 10px;
+font-size: 120%;
+}
+h4 {
+border-bottom: 1px solid #f7f7f7;
+margin-left: 8px;
+font-size: 105%;
+}
+h5, h6 {
+border-bottom: 1px solid #ccc;
+font-size: 105%;
+}
+a {
+color: #0033dd;
+text-decoration: none;
+}
+a:hover {
+color: #6666ff; }
+a:visited {
+color: #800080; }
+a:visited:hover {
+color: #BB00BB; }
+a[href^="http:"] {
+text-decoration: underline; }
+a[href^="https:"] {
+text-decoration: underline; }
+
+code > span.kw { color: #555; font-weight: bold; } 
+code > span.dt { color: #902000; } 
+code > span.dv { color: #40a070; } 
+code > span.bn { color: #d14; } 
+code > span.fl { color: #d14; } 
+code > span.ch { color: #d14; } 
+code > span.st { color: #d14; } 
+code > span.co { color: #888888; font-style: italic; } 
+code > span.ot { color: #007020; } 
+code > span.al { color: #ff0000; font-weight: bold; } 
+code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61717; background-color: #e3d2d2; } 
+</style>
+
+
+
+
+</head>
+
+<body>
+
+
+
+
+<h1 class="title toc-ignore">Overview</h1>
+<h4 class="author">Matthias Grenié</h4>
+<h4 class="author">Hugo Gruson</h4>
+<h4 class="date">2019-05-16</h4>
+
+
+
+<div id="query-journal-data" class="section level2">
+<h2>Query Journal Data</h2>
+<p><strong>NOTE:</strong> SHERPA/RoMEO data is released under the <a href="https://creativecommons.org/licenses/by-nc-sa/2.5/">Creative Commons Attribution-NonCommercial-ShareAlike 2.5 (CC BY-NC-SA 2.5) license</a>. A suggestion of citation is included in <code>rromeo</code> via <code>citation(&quot;rromeo&quot;)</code></p>
+<p>The SHERPA/RoMEO database contains information on the archival policies of academic journals and publishers. Some journals let you archive a version of a submitted manuscript or book chapter (= preprint) before it’s reviewed, some also let you archive the peer-reviewed but not formatted version (= postprint) and some even let you archive the peer-reviewed <strong>and</strong> formatted version of the manuscript (= pdf or publisher’s version). The goal of <code>rromeo</code> is to make this database accessible through R.</p>
+<div id="query-using-issn" class="section level3">
+<h3>Query using ISSN</h3>
+<p>Let’s try to access summary data using the ISSN of a journal:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">library</span>(rromeo)</a>
+<a class="sourceLine" id="cb1-2" title="2"></a>
+<a class="sourceLine" id="cb1-3" title="3"><span class="kw">rr_journal_issn</span>(<span class="st">&quot;1947-6264&quot;</span>)</a></code></pre></div>
+<pre><code>##                                                       title      issn
+## 1 A Critical Introduction to Media and Communication Theory 1947-6264
+##   romeocolour preprint  postprint        pdf pre_embargo post_embargo
+## 1      yellow      can restricted restricted        &lt;NA&gt;    12 months
+##   pdf_embargo
+## 1   12 months</code></pre>
+<p>From this we see that the archival of the preprint is permitted while some restrictions apply for both postprint and pdf version of the manuscript. The restrictions are visible in the <code>*_embargo</code> field: the authors have to wait 12 months after publication before archiving postprint and formatted manuscript.</p>
+</div>
+<div id="query-by-journal-title" class="section level3">
+<h3>Query by Journal Title</h3>
+<p>We can also search journal by names using <code>rr_journal_find()</code> the first argument <code>name</code> is the string to look for and the second argument <code>qtype</code> defines the way to match. If we want to look at journals that have the word <code>Biostatistics</code> in their title we can use the following code:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1"><span class="kw">rr_journal_find</span>(<span class="st">&quot;Biostatistics&quot;</span>, <span class="dt">qtype =</span> <span class="st">&quot;contains&quot;</span>)</a></code></pre></div>
+<pre><code>## 17 journals match your query terms.</code></pre>
+<pre><code>## Only titles and ISSNs of journals returned. Get more information using `rr_journal_name()`</code></pre>
+<pre><code>##                                                             title
+## 1                               American Journal of Biostatistics
+## 2                          Annals of Biometrics and Biostatistics
+## 4                             Austin Biometrics and Biostatistics
+## 5                Biometrics &amp; biostatistics international journal
+## 6                                                   Biostatistics
+## 7                                           Biostatistics -Basel-
+## 8                Biostatistics, bioinformatics and biomathematics
+## 9                                Edorium Journal of Biostatistics
+## 10                             Enliven: Biostatistics and Metrics
+## 11                   Epidemiology Biostatistics and Public Health
+## 12                         International Journal of Biostatistics
+## 13 International journal of clinical biostatistics and biometrics
+## 14                        Journal of Biometrics and Biostatistics
+## 15                      Journal of epidemiology and biostatistics
+## 16                                    JP journal of biostatistics
+## 17                   Monographs in Epidemiology and Biostatistics
+##         issn
+## 1  1948-9889
+## 2  2374-0116
+## 4  2378-9840
+## 5       &lt;NA&gt;
+## 6  1465-4644
+## 7  1527-2486
+## 8  0976-1594
+## 9       &lt;NA&gt;
+## 10      &lt;NA&gt;
+## 11 2282-2305
+## 12 1557-4679
+## 13      &lt;NA&gt;
+## 14 2155-6180
+## 15 1359-5229
+## 16 0973-5143
+## 17 0740-0845</code></pre>
+<p><code>rr_journal_find()</code> will only return the list of titles and ISSN. You can then use this list to select the exact journal you are looking for (in this case, it is recommended to use the ISSN). Alternatively, you may want to get data for all those journals. To achieve this, you need to use the function <code>rr_journal_name()</code> which uses a similar syntax to <code>rr_journal_find()</code>:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" title="1">res &lt;-<span class="st"> </span><span class="kw">rr_journal_name</span>(<span class="st">&quot;Biostatistics&quot;</span>, <span class="dt">qtype =</span> <span class="st">&quot;contains&quot;</span>)</a></code></pre></div>
+<pre><code>## 17 journals match your query terms.</code></pre>
+<pre><code>## Recursively fetching data from each journal. This may take some time...</code></pre>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" title="1"><span class="kw">tail</span>(res, <span class="dv">3</span>)</a></code></pre></div>
+<pre><code>##                                           title      issn romeocolour
+## 14    Journal of epidemiology and biostatistics 1359-5229        &lt;NA&gt;
+## 15                  JP journal of biostatistics 0973-5143        &lt;NA&gt;
+## 16 Monographs in Epidemiology and Biostatistics 0740-0845      yellow
+##    preprint  postprint     pdf pre_embargo post_embargo pdf_embargo
+## 14     &lt;NA&gt;       &lt;NA&gt;    &lt;NA&gt;        &lt;NA&gt;         &lt;NA&gt;        &lt;NA&gt;
+## 15     &lt;NA&gt;       &lt;NA&gt;    &lt;NA&gt;        &lt;NA&gt;         &lt;NA&gt;        &lt;NA&gt;
+## 16      can restricted unclear        &lt;NA&gt;    12 months        &lt;NA&gt;</code></pre>
+<p>The query may run for longer but it gives you all the information on all returned journals.</p>
+<p>You can also use other type of name matching with other options for <code>qtype</code>, for example when <code>qtype = &quot;starts&quot;</code> the query string have to begin the title of the journal:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" title="1"><span class="kw">rr_journal_name</span>(<span class="st">&quot;Biostatistics&quot;</span>, <span class="dt">qtype =</span> <span class="st">&quot;starts&quot;</span>)</a></code></pre></div>
+<pre><code>## 3 journals match your query terms.</code></pre>
+<pre><code>## Recursively fetching data from each journal. This may take some time...</code></pre>
+<pre><code>##                                              title      issn romeocolour
+## 1                                    Biostatistics 1465-4644       green
+## 2                            Biostatistics -Basel- 1527-2486        &lt;NA&gt;
+## 3 Biostatistics, bioinformatics and biomathematics 0976-1594        &lt;NA&gt;
+##   preprint postprint    pdf pre_embargo post_embargo pdf_embargo
+## 1      can       can cannot        &lt;NA&gt;         &lt;NA&gt;        &lt;NA&gt;
+## 2     &lt;NA&gt;      &lt;NA&gt;   &lt;NA&gt;        &lt;NA&gt;         &lt;NA&gt;        &lt;NA&gt;
+## 3     &lt;NA&gt;      &lt;NA&gt;   &lt;NA&gt;        &lt;NA&gt;         &lt;NA&gt;        &lt;NA&gt;</code></pre>
+<p>While using <code>qtype = exact</code> the title of the journal should match exactly the used string:</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" title="1"><span class="kw">rr_journal_name</span>(<span class="st">&quot;Biostatistics&quot;</span>, <span class="dt">qtype =</span> <span class="st">&quot;exact&quot;</span>)</a></code></pre></div>
+<pre><code>##           title      issn romeocolour preprint postprint    pdf
+## 1 Biostatistics 1465-4644       green      can       can cannot
+##   pre_embargo post_embargo pdf_embargo
+## 1        &lt;NA&gt;         &lt;NA&gt;        &lt;NA&gt;</code></pre>
+</div>
+</div>
+<div id="query-publisher-data" class="section level2">
+<h2>Query Publisher Data</h2>
+<p>Not only can <code>rromeo</code> query journals archival policies but it can do the same for publishers. Indeed the SHERPA/RoMEO database contains much information on publishers’ policies, with many ways to retrieve the information.</p>
+<div id="query-by-publishers-name" class="section level3">
+<h3>Query by Publisher’s Name</h3>
+<p>With <code>rr_publisher_name()</code> you can query publishers’ information using the name of the publishers. The first argument <code>name</code> is the string to match publisher’s names the second argument <code>qtype</code> gives the type of matching:</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb18-1" title="1"><span class="kw">rr_publisher_name</span>(<span class="dt">name =</span> <span class="st">&quot;Oxford&quot;</span>, <span class="dt">qtype =</span> <span class="st">&quot;all&quot;</span>)</a></code></pre></div>
+<pre><code>##   romeoid                                                       publisher
+## 1    2632                                       Oxford Brookes University
+## 2    1892                     Oxford Centre for Hebrew and Jewish Studies
+## 3     986                       Oxford University Anthropological Society
+## 4      55                                         Oxford University Press
+## 5    2072 University of Oxford, Oxford Uehiro Centre for Practical Ethics
+##   alias romeocolour preprint  postprint     pdf
+## 1  &lt;NA&gt;        blue   cannot        can     can
+## 2  &lt;NA&gt;        blue  unclear        can  cannot
+## 3  &lt;NA&gt;       green      can        can     can
+## 4   OUP      yellow      can restricted unclear
+## 5  &lt;NA&gt;       green      can        can     can</code></pre>
+<p>When <code>qtype = &quot;all&quot;</code> the publishers’ names should contain all the words, in any order, included in provided string:</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb20-1" title="1"><span class="kw">rr_publisher_name</span>(<span class="dt">name =</span> <span class="st">&quot;Oxford University&quot;</span>, <span class="dt">qtype =</span> <span class="st">&quot;all&quot;</span>)</a></code></pre></div>
+<pre><code>##   romeoid                                                       publisher
+## 1    2632                                       Oxford Brookes University
+## 2     986                       Oxford University Anthropological Society
+## 3      55                                         Oxford University Press
+## 4    2072 University of Oxford, Oxford Uehiro Centre for Practical Ethics
+##   alias romeocolour preprint  postprint     pdf
+## 1  &lt;NA&gt;        blue   cannot        can     can
+## 2  &lt;NA&gt;       green      can        can     can
+## 3   OUP      yellow      can restricted unclear
+## 4  &lt;NA&gt;       green      can        can     can</code></pre>
+<p>While when <code>qtype = &quot;exact&quot;</code> the publishers’ names should contain all the words in the same order as provided in the string:</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb22-1" title="1"><span class="kw">rr_publisher_name</span>(<span class="dt">name =</span> <span class="st">&quot;Oxford University&quot;</span>, <span class="dt">qtype =</span> <span class="st">&quot;exact&quot;</span>)</a></code></pre></div>
+<pre><code>##   romeoid                                 publisher alias romeocolour
+## 1     986 Oxford University Anthropological Society  &lt;NA&gt;       green
+## 2      55                   Oxford University Press   OUP      yellow
+##   preprint  postprint     pdf
+## 1      can        can     can
+## 2      can restricted unclear</code></pre>
+<p>Finally, when <code>qtype = &quot;any&quot;</code> publishers’ names can contain any words of the provided string.</p>
+</div>
+<div id="query-by-romeos-id" class="section level3">
+<h3>Query by RoMEO’s ID</h3>
+<p>The first column of publishers’ policies data frame returned by <code>rromeo</code> is named <code>romeoid</code> it corresponds to the identifier used by SHERPA/RoMEO to identify publishers in a unique way:</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb24-1" title="1"><span class="kw">rr_publisher_id</span>(<span class="dt">id =</span> <span class="dv">55</span>)</a></code></pre></div>
+<pre><code>##   romeoid               publisher alias romeocolour preprint  postprint
+## 1      55 Oxford University Press   OUP      yellow      can restricted
+##       pdf
+## 1 unclear</code></pre>
+</div>
+<div id="query-by-country-or-region" class="section level3">
+<h3>Query by Country or Region</h3>
+<p>You can also query publishers information based on the country they are in using their two-letters ISO codes (see <code>?rr_publisher_country</code> for more information):</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb26-1" title="1"><span class="kw">rr_publisher_country</span>(<span class="dt">country =</span> <span class="st">&quot;IR&quot;</span>)</a></code></pre></div>
+<pre><code>##    romeoid
+## 1     1936
+## 2     2786
+## 3     1556
+## 4     2741
+## 5     2159
+## 6     1823
+## 7     1745
+## 8     1726
+## 9     1742
+## 10    1414
+## 11    1867
+## 12    3078
+## 13    2084
+## 14    1362
+## 15    1753
+## 16    2922
+## 17    1208
+## 18    2845
+##                                                              publisher
+## 1                               Acta Advances in Agricultural Sciences
+## 2                                                    Avicenna Journals
+## 3  Azad University, Mahlkesi Branch, Mechanical Engineering Department
+## 4                          Geodynamics Research International Bulletin
+## 5        International Journal of Management, Accounting and Economics
+## 6                            Islamic Azad University, Najafabad Branch
+## 7                             Islamic Azad University, Shahreza Branch
+## 8                                                        Islamic Press
+## 9                              Jahan Elm Institute of Higher Education
+## 10                               Kerman University of Medical Sciences
+## 11                                              Oboor Publishing Group
+## 12                      Shahid Sadoughi University of Medical Sciences
+## 13                                  Shefa Neuroscience Research Center
+## 14                                                   Shiraz University
+## 15                          Society of Diabetic Nephropathy Prevention
+## 16                               Tabriz University of Medical Sciences
+## 17                               Tehran University of Medical Sciences
+## 18                   University of Maragheh, Department of Mathematics
+##                      alias romeocolour preprint  postprint        pdf
+## 1                     &lt;NA&gt;        blue   cannot        can        can
+## 2  Advancements in Science       green      can        can        can
+## 3                     &lt;NA&gt;        blue   cannot     cannot        can
+## 4                     &lt;NA&gt;        blue   cannot     cannot        can
+## 5                     &lt;NA&gt;       green      can        can        can
+## 6                     &lt;NA&gt;        blue   cannot        can        can
+## 7                     &lt;NA&gt;        blue  unclear        can        can
+## 8                     &lt;NA&gt;        blue   cannot     cannot        can
+## 9                     &lt;NA&gt;        blue  unclear        can        can
+## 10                    &lt;NA&gt;        blue   cannot        can        can
+## 11                    &lt;NA&gt;       green      can        can        can
+## 12                    &lt;NA&gt;      yellow      can restricted restricted
+## 13                    &lt;NA&gt;       green      can        can        can
+## 14                    &lt;NA&gt;        blue   cannot        can        can
+## 15                    &lt;NA&gt;        blue   cannot     cannot        can
+## 16                    &lt;NA&gt;        blue   cannot        can        can
+## 17                    &lt;NA&gt;       green      can        can        can
+## 18                    &lt;NA&gt;       green      can        can        can</code></pre>
+<p>It is also possible to query publisher’s information on a specific region or continent using <code>rr_publisher_continent()</code> (see the help page for the list of available regions):</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb28-1" title="1"><span class="kw">rr_publisher_continent</span>(<span class="dt">continent =</span> <span class="st">&quot;Australasia&quot;</span>)</a></code></pre></div>
+<pre><code>##    romeoid
+## 1     1514
+## 2     1853
+## 3      959
+## 4      736
+## 5      222
+## 6     2343
+## 7     1358
+## 8      220
+## 9       98
+## 10     518
+## 11     638
+## 12      97
+## 13    1813
+## 14     255
+## 15     248
+## 16     151
+## 17     161
+## 18     383
+## 19     290
+## 20    2420
+## 21     150
+## 22     160
+## 23     553
+## 24     550
+## 25    2501
+## 26    2453
+## 27     571
+## 28     626
+## 29    1928
+## 30    1026
+## 31     557
+## 32    3226
+## 33     163
+## 34     745
+## 35     284
+## 36    1397
+## 37    1310
+## 38     665
+## 39    2471
+## 40    2472
+## 41     598
+## 42     623
+## 43     666
+## 44    2134
+## 45     670
+## 46    2755
+## 47    2385
+## 48     581
+## 49    1767
+## 50     264
+## 51    1329
+## 52    1432
+## 53    3041
+## 54    3016
+## 55     164
+## 56    1946
+## 57    2532
+## 58     380
+##                                                                                   publisher
+## 1                                                                                 ANU Press
+## 2                                                                                  ANZAMEMS
+## 3                                                                                ARRB Group
+## 4                                                       Association of Occupational Science
+## 5  Auckland University of Technology, School of Communication Studies, Pacific Media Centre
+## 6                                          Australasian Association for Information Systems
+## 7                                                              Australasian Medical Journal
+## 8                      Australasian Society for Computers in Learning in Tertiary Education
+## 9                                                                 Australian Academic Press
+## 10                                                           Australian Accoustical Society
+## 11                                               Australian Clearinghouse for Youth Studies
+## 12                                                          Australian Computer Society Inc
+## 13                                                 Australian International Academic Centre
+## 14                                           Australian Library and Information Association
+## 15                                                          Australian Mathematical Society
+## 16                                                     Australian Physiotherapy Association
+## 17                                                         Australian Psychological Society
+## 18                                                 Australian Rock Art Research Association
+## 19                                                      Australian Society of Anaesthetists
+## 20                                                                        Bareknuckle Books
+## 21                          College of Intensive Care Medicine of Australia and New Zealand
+## 22                                                                         CSIRO Publishing
+## 23                                                                     e-Content Management
+## 24                                                                Early Childhood Australia
+## 25                                                                   Edith Cowan University
+## 26                                                                                     EMAJ
+## 27                                                       Field Naturalists Club of Victoria
+## 28                    Griffith University, Griffith Law School, Socio-Legal Research Centre
+## 29                                                                           Infinity Press
+## 30                                                      Institute of Foresters of Australia
+## 31                                       International Association for Statistics Education
+## 32                                                                     LexisNexis Australia
+## 33                                                                       Libertas Academica
+## 34                          Macquarie University, Department of International Communication
+## 35                                                                           Magnolia Press
+## 36                                      Mathematics Education Research Group of Australasia
+## 37                                             Melbourne University, Law Review Association
+## 38                                                                 Monash University ePress
+## 39                                                           New Zealand Ecological Society
+## 40                                                        New Zealand Institute of Forestry
+## 41                                                          New Zealand Medical Association
+## 42                                                          New Zealand Nurses Organisation
+## 43                                                 New Zealand Society of Animal Production
+## 44                                                             Outdoor Council of Australia
+## 45                                                                            Python Papers
+## 46                                                      Queensland University of Technology
+## 47                                      Queensland University of Technology, Faculty of Law
+## 48                                                                          RMIT Publishing
+## 49                                       Royal New Zealand College of General Practitioners
+## 50                                                             Royal Society of New Zealand
+## 51                                                                Royal Society of Victoria
+## 52                                                                              SETScholars
+## 53                                                             Studies in Material Thinking
+## 54                                                                        Sydney Law School
+## 55                                                                          Thomson Reuters
+## 56                                                                               UTS ePRESS
+## 57                                   Western Australian Institutes for Educational Research
+## 58                                 World Institute for Engineering and Technology Education
+##                                                                           alias
+## 1                                                                          &lt;NA&gt;
+## 2  Australian and New Zealand Association for Medieval and Early Modern Studies
+## 3                                                                          &lt;NA&gt;
+## 4                                                                          &lt;NA&gt;
+## 5                                                                          &lt;NA&gt;
+## 6                                                                          AAIS
+## 7                                                                          &lt;NA&gt;
+## 8                                                                      ascilite
+## 9                                                                          &lt;NA&gt;
+## 10                                                                         &lt;NA&gt;
+## 11                                                                         &lt;NA&gt;
+## 12                                                                         &lt;NA&gt;
+## 13                                                                         AIAC
+## 14                                                                         &lt;NA&gt;
+## 15                                                                         &lt;NA&gt;
+## 16                                                                         &lt;NA&gt;
+## 17                                                                         &lt;NA&gt;
+## 18                                                                         &lt;NA&gt;
+## 19                                                                         &lt;NA&gt;
+## 20                                                                         &lt;NA&gt;
+## 21                                                                         &lt;NA&gt;
+## 22                                                                         &lt;NA&gt;
+## 23                                                                         &lt;NA&gt;
+## 24                                                                         &lt;NA&gt;
+## 25                                                                         &lt;NA&gt;
+## 26                                                                         &lt;NA&gt;
+## 27                                                                         &lt;NA&gt;
+## 28                                                                         &lt;NA&gt;
+## 29                                                                         &lt;NA&gt;
+## 30                                                                         &lt;NA&gt;
+## 31                                                                         IASE
+## 32                                                                         &lt;NA&gt;
+## 33                                                                         &lt;NA&gt;
+## 34                                                                         &lt;NA&gt;
+## 35                                                                         &lt;NA&gt;
+## 36                                                                         &lt;NA&gt;
+## 37                                                                         &lt;NA&gt;
+## 38                                                                         &lt;NA&gt;
+## 39                                                                         &lt;NA&gt;
+## 40                                                                         &lt;NA&gt;
+## 41                                                                         &lt;NA&gt;
+## 42                                                                         &lt;NA&gt;
+## 43                                                                         &lt;NA&gt;
+## 44                                                                         &lt;NA&gt;
+## 45                                                                         &lt;NA&gt;
+## 46                                                                         &lt;NA&gt;
+## 47                                                                         &lt;NA&gt;
+## 48                                                                         &lt;NA&gt;
+## 49                                                                         &lt;NA&gt;
+## 50                                                                         &lt;NA&gt;
+## 51                                                                         &lt;NA&gt;
+## 52                                                                         &lt;NA&gt;
+## 53                                                                         &lt;NA&gt;
+## 54                                                                         &lt;NA&gt;
+## 55                                                                 Professional
+## 56                                                                         &lt;NA&gt;
+## 57                                                                         &lt;NA&gt;
+## 58                                                                        WIETE
+##    romeocolour preprint  postprint        pdf
+## 1        green      can        can       &lt;NA&gt;
+## 2        green      can        can        can
+## 3         blue   cannot        can     cannot
+## 4        white   cannot restricted     cannot
+## 5         blue   cannot        can        can
+## 6        green      can        can        can
+## 7        green      can        can       &lt;NA&gt;
+## 8        green      can        can        can
+## 9         blue   cannot        can     cannot
+## 10       white   cannot     cannot       &lt;NA&gt;
+## 11       green      can        can restricted
+## 12       green      can        can       &lt;NA&gt;
+## 13       green      can        can        can
+## 14        blue  unclear        can       &lt;NA&gt;
+## 15      yellow      can     cannot restricted
+## 16        blue   cannot     cannot        can
+## 17       white  unclear restricted     cannot
+## 18       white   cannot restricted       &lt;NA&gt;
+## 19       white   cannot restricted       &lt;NA&gt;
+## 20       green      can        can        can
+## 21       white   cannot     cannot     cannot
+## 22       green      can        can     cannot
+## 23       green      can        can     cannot
+## 24       white  unclear    unclear       &lt;NA&gt;
+## 25        blue   cannot        can        can
+## 26       green      can        can        can
+## 27        blue  unclear        can        can
+## 28        blue   cannot        can        can
+## 29       green      can        can        can
+## 30       white   cannot restricted restricted
+## 31        blue  unclear        can       &lt;NA&gt;
+## 32        blue  unclear        can restricted
+## 33       green      can        can        can
+## 34       white  unclear    unclear       &lt;NA&gt;
+## 35       white   cannot     cannot     cannot
+## 36        blue  unclear     cannot        can
+## 37        blue   cannot        can        can
+## 38      yellow      can     cannot       &lt;NA&gt;
+## 39      yellow      can restricted restricted
+## 40      yellow      can restricted restricted
+## 41       white   cannot     cannot restricted
+## 42        blue   cannot     cannot        can
+## 43       white  unclear restricted       &lt;NA&gt;
+## 44        blue  unclear     cannot        can
+## 45        blue  unclear        can       &lt;NA&gt;
+## 46       green      can        can        can
+## 47       green      can        can        can
+## 48       green      can        can     cannot
+## 49        blue   cannot        can        can
+## 50      yellow      can restricted     cannot
+## 51       white   cannot     cannot     cannot
+## 52       green      can        can        can
+## 53        blue  unclear     cannot        can
+## 54        blue   cannot     cannot        can
+## 55        blue   cannot        can       &lt;NA&gt;
+## 56       green      can        can        can
+## 57        blue   cannot        can        can
+## 58       white   cannot     cannot       &lt;NA&gt;</code></pre>
+</div>
+<div id="query-by-romeo-colour" class="section level3">
+<h3>Query by RoMEO colour</h3>
+<p>RoMEO assigns a colour depending on the different policies of publishers.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">RoMEO colour</th>
+<th align="left">Archiving policy</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><code>green</code></td>
+<td align="left">can archive preprint, postprint and publisher’s version</td>
+</tr>
+<tr class="even">
+<td align="left"><code>blue</code></td>
+<td align="left">can archive postprint <strong>or</strong> publisher’s version</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>yellow</code></td>
+<td align="left">can archive preprint</td>
+</tr>
+<tr class="even">
+<td align="left"><code>white</code></td>
+<td align="left">archiving not formally supported</td>
+</tr>
+</tbody>
+</table>
+<p>(Table taken from <a href="http://www.sherpa.ac.uk/romeo/definitions.php#colours" class="uri">http://www.sherpa.ac.uk/romeo/definitions.php#colours</a>)</p>
+<p>You can query journals using this classification with the function <code>rr_romeo_colour()</code>:</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb30-1" title="1"><span class="kw">rr_romeo_colour</span>(<span class="dt">romeo_colour =</span> <span class="st">&quot;green&quot;</span>)</a></code></pre></div>
+<p>In this example vignette we do not run the query because it can run for quite long as it returns the policies of all publishers of the given colour (you can see the numbers of publishers in each category in the following web page <a href="http://www.sherpa.ac.uk/romeo/statistics.php?la=en&amp;fIDnum=%7C&amp;mode=simple" class="uri">http://www.sherpa.ac.uk/romeo/statistics.php?la=en&amp;fIDnum=|&amp;mode=simple</a>).</p>
+</div>
+</div>
+<div id="setting-up-an-api-key" class="section level2">
+<h2>Setting up an API key</h2>
+<p>SHERPA/RoMEO lets you make 500 queries per day per IP address for free. If you get past this limit you will get the following error:</p>
+<pre><code>You have exceeded the free use limit of 500 requests per day. To go beyond this limit you should register for a free API key available at http://www.sherpa.ac.uk/romeo/apiregistry.php</code></pre>
+<p>We encourage you to register for a <strong>free</strong> API key at the above-mentioned address.</p>
+<p>To provide your API key to <code>rromeo</code> you can: 1. provide it as a character string as the <code>key</code> arguments of <code>rromeo</code> functions as <code>rr_*(..., key = &quot;my_key_as_a_string&quot;)</code>, we <strong>do not recommend</strong> this method as your API key will be available from your history; 1. you can define the variable <code>SHERPAROMEO_KEY</code> in an <code>.Renviron</code> file in your working directory, the file should contain the following line <code>SHERPAROMEO_KEY=my_key_without_quotes</code>; 1. you can also define the variable <code>SHERPAROMEO_KEY</code> in an <code>.Rprofile</code> file in your working directory, the file should contain the following line <code>SHERPAROMEO_KEY=&quot;my_key_with_quotes&quot;</code>.</p>
+</div>
+<div id="visualization-example" class="section level2">
+<h2>Visualization Example</h2>
+<p><code>rromeo</code> can be quite useful in bibliometric studies to report on archival policies. For example, we can now have a quick visual overview of the policies of journals in a given field from the results obtained in a query:</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb32-1" title="1"><span class="kw">library</span>(ggplot2)</a></code></pre></div>
+<pre><code>## Registered S3 methods overwritten by &#39;ggplot2&#39;:
+##   method         from 
+##   [.quosures     rlang
+##   c.quosures     rlang
+##   print.quosures rlang</code></pre>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb34-1" title="1"><span class="kw">theme_set</span>(<span class="kw">theme_minimal</span>())</a>
+<a class="sourceLine" id="cb34-2" title="2"></a>
+<a class="sourceLine" id="cb34-3" title="3">stacked_res &lt;-<span class="st"> </span><span class="kw">stack</span>(res[, <span class="dv">4</span><span class="op">:</span><span class="dv">6</span>])</a>
+<a class="sourceLine" id="cb34-4" title="4"><span class="kw">ggplot</span>(stacked_res, <span class="kw">aes</span>(<span class="dt">x =</span> ind, <span class="dt">fill =</span> values)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb34-5" title="5"><span class="st">  </span><span class="kw">geom_bar</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb34-6" title="6"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="ot">NULL</span>,</a>
+<a class="sourceLine" id="cb34-7" title="7">       <span class="dt">subtitle =</span> <span class="st">&quot;Archiving Policies of Journals with &#39;Biostatistics&#39; in their title&quot;</span>)</a></code></pre></div>
+<p><img src="data:image/png;base64,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a9askWrVqsU9DMqsQoUKOfZlYySqWDmzTcagyYdOT2Yd57gomJH1BDI6Db97925ZtWqVKh+QgmldsWJFWb9+fUJwuACLFi2a4y/hARncEStnBkWJe+qgyQd58aBiCg+BjPYmzOlhw4bJokWLlOiXX36pjur69euHhzBbQgIkkJBARodgsGb69Okjjz76qP5t2LBB+vfvH5miTyg1d5AACYSCQIEroIULF0aBO+mkk2T8+PGydetWKV26NMf4UXT4hQTCTaDAFVAinGXKlEm0i/kkQAIhJZBRH1BImbJZJEACHglQAXkExWIkQAL+E6AC8p8payQBEvBIgArIIygWIwES8J8AFZD/TFkjCZCARwJUQB5BsRgJkID/BKiA/GfKGkmABDwSoALyCIrFSIAE/CdABeQ/U9ZIAiTgkQAVkEdQLEYCJOA/ASog/5myRhIgAY8EqIA8gmIxEiAB/wlQAfnPlDWSAAl4JEAF5BEUi5EACfhPgArIf6askQRIwCMBKiCPoFiMBEjAfwJUQP4zZY0kQAIeCVABeQTFYiRAAv4ToALynylrJAES8EiACsgjKBYjARLwnwAVkP9MWWMhJPDnn3/KPffcI6tXry6Erc97k6mA8s6OR5JAhMCuXbtk4MCBVEARIt42qIC8cWIpEiCBNBCgAkoDVFYZPAIYQl111VXyySefRAk/adIkGTVqlOahzIMPPigdO3aUs88+W2644QZZtWpVVHn7ZcSIEfL888/br/p51113yZtvvhnJ27Ztm9x5553SunVr6dKlS9Q+FJo4caJ06NBB2rRpI7fffrts2rQpcmxYNqiAwtKTbEe+CJQsWVK+//57eeSRRyL1/P3333LHHXdIiRIlNA9K57nnnpMzzzxTzjnnHJk/f76cccYZgnKxadasWfLBBx9EZUMhrVixQvN27NghiAo8e/Zsad++vYYjb9u2rTz99NO6H4rvpptukqZNm0qnTp30XGeddVZUfWH4kjWRUcMAk20INoGePXuqFQQlBIX01ltvycaNG+WSSy7RzwoVKsjYsWPlmGOO0YYeffTRap1s2LBBSpUqlVLjYVWtW7dOli5dKogKfPXVV8tRRx0lt956q1x++eXy3nvvSYMGDeTmm2/WcOVQRC+//LLACoNsYUmBU0C7d++W7du35+D/32dUjuyMZsSazNkmY9DkQ2cWK1ZM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" /><!-- --></p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb35-1" title="1"><span class="kw">ggplot</span>(res, <span class="kw">aes</span>(<span class="dt">x =</span> <span class="st">&quot;a&quot;</span>, <span class="dt">fill =</span> romeocolour)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb35-2" title="2"><span class="st">  </span><span class="kw">geom_bar</span>() <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb35-3" title="3"><span class="st">  </span><span class="kw">coord_polar</span>(<span class="st">&quot;y&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb35-4" title="4"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="ot">NULL</span>,</a>
+<a class="sourceLine" id="cb35-5" title="5">       <span class="dt">subtitle =</span> <span class="st">&quot;RoMEO colours of Journals with &#39;Biostatistics&#39; in their title&quot;</span>)</a></code></pre></div>
+<p><img src="data:image/png;base64,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fffdNzStn3/+We6880458cQTpXXr1qHhoryRrzp45JFHhHa/99572+IuWbJEmjZtao+/+OILeemll4T2mI7885//lGXLlsmxxx4rM2fOlAkTJsQeq1mzpnTo0EH69esnXbt2jV1PTD92o4oH/vynE4U/fGhevBzIhRde6JmX3DvooINifzvuuKNXp04dzzRK77PPPks71Q022MAzhfWIM1F+/PFHr0aNGvb+7Nmz7e2LL77Yq1evnrfzzjsH/i1atCgWjSECr27dup4hRe+0007zBg8e7NWvX9/bbrvtvOXLl8fCZfNg8eLFNr/vvPNONqPNaVznnXeet95661mMDLknTeuTTz6x5eO3UCVfdbDffvt5J598soXBdHLetttuG4PEEIjXokWL2HmqA0P63jbbbGOD/etf/7IYEx/tnPZqOnfPdJreXXfdFYvKn37sYhUPTj31VO+yyy5L++nE8oblJScaEOzYqlUrgbX9AiN27txZ0GoeeOAB/62kxzzz2GOPiQEgLhzxt23bVn766ae462hYppLiriWePPPMM2JeLHnwwQflkEMOid2eM2eObL311ranJ0zt2jmDKJZmoR/QW5sGJDfffHOhZ7Wg8vfkk0/G8oP2iCZfVUGTMp1i3OMPPfRQ3Kjg3HPPtRrV0UcfbdutP/24B6tw8sEHHyTVfBOjTCxvWF7yagNC/WSI8+2338byO2/ePAua0T7k8MMPt2pp7OZ/D1D7eYYXwS+odQcffLD/UtrHZ599thx22GFx5MPDEBpgTZ48Wd56663Q+D788EM77Bs6dKjccsstQjmcpFMmF5bfd999V4488kjZbbfdZNSoUWI0u9jtsWPHyqOPPho75+Ciiy6KEazRpOyQjjDkhV/Tw8sFF1wgYAo+48ePF9N1xcXhP0mWX+IxGqtQ3uOPP15Wr17tfzSt42TlA+O///3vcfE8/fTTcs0119hrQeV7//335YorrpCPPvrIDkmGDBkiY8aMkYqKilg8M2bMkDPOOEP22GMP2X///eW6664LzXu6eP3www8WA4b8ThhO+4mZMCeccIIwbL3ttttsB4dJ4IknnhCjpdvnjRbuHpePP/7Y1v0+++wj1HVYPXXv3l169OgRey7oYNCgQbJ06VL7x32XvgubrJ4Jc//998uwYcMEPOmcf/31V/so2M6aNUvokK+66ioXnTz3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" /><!-- --></p>
+</div>
+
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
