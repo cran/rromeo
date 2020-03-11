@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 
 <head>
 
 <meta charset="utf-8" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 
 
 
@@ -94,7 +94,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
       var style = rule.style.cssText;
       // check if color or background-color is set
-      if (rule.style.color === '' || rule.style.backgroundColor === '') continue;
+      if (rule.style.color === '' && rule.style.backgroundColor === '') continue;
       // replace div.sourceCode by a pre.sourceCode rule
       sheets[i].deleteRule(j);
       sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
@@ -115,9 +115,6 @@ padding-right: 2em;
 font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 font-size: 14px;
 line-height: 1.35;
-}
-#header {
-text-align: center;
 }
 #TOC {
 clear: both;
@@ -286,7 +283,8 @@ code > span.st { color: #d14; }
 code > span.co { color: #888888; font-style: italic; } 
 code > span.ot { color: #007020; } 
 code > span.al { color: #ff0000; font-weight: bold; } 
-code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61717; background-color: #e3d2d2; } 
+code > span.fu { color: #900; font-weight: bold; } 
+code > span.er { color: #a61717; background-color: #e3d2d2; } 
 </style>
 
 
@@ -355,7 +353,7 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 <p>You can then reload your session and check that <code>rromeo</code> managed to get your key by using the <code>check_key()</code> function:</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" title="1"><span class="kw">check_key</span>()</a>
 <a class="sourceLine" id="cb6-2" title="2"><span class="co">#&gt; [1] &quot;Iq83AIL5bs2&quot;</span></a></code></pre></div>
-<p>Now <code>rromeo</code> can use your SHERPA/RoMEO API key! See the <a href="https://ropensci.github.io/rromeo/articles/rromeo.html">getting started vignette</a> for usage of <code>rromeo</code> functions.</p>
+<p>Now <code>rromeo</code> can use your SHERPA/RoMEO API key! See the <a href="rromeo.html">getting started vignette</a> for usage of <code>rromeo</code> functions.</p>
 </div>
 <div id="setting-up-your-api-key-in-an-.renviron-file" class="section level3">
 <h3>Setting up your API key in an <code>.Renviron</code> file</h3>
@@ -365,7 +363,7 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 <p>You can then check that your key has been found using <code>check_key()</code>:</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" title="1"><span class="kw">check_key</span>()</a>
 <a class="sourceLine" id="cb8-2" title="2"><span class="co">#&gt; [1] &quot;Iq83AIL5bs2&quot;</span></a></code></pre></div>
-<p>Now <code>rromeo</code> can use your SHERPA/RoMEO API key! See the <a href="https://ropensci.github.io/rromeo/articles/rromeo.html">getting started vignette</a> for usage of <code>rromeo</code> functions.</p>
+<p>Now <code>rromeo</code> can use your SHERPA/RoMEO API key! See the <a href="rromeo.html">getting started vignette</a> for usage of <code>rromeo</code> functions.</p>
 </div>
 <div id="using-the-key-function-argument-not-recommended" class="section level3">
 <h3>Using the <code>key</code> function argument (<strong>NOT RECOMMENDED</strong>)</h3>
@@ -377,6 +375,9 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 </div>
 </div>
 
+
+
+<!-- code folding -->
 
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
